@@ -62,6 +62,7 @@ module.exports = {
   ]
 };
 
+/*
 module.exports.plugins.push(
   new UglifyPlugin({
     test: /\.js($|\?)/i,
@@ -69,4 +70,4 @@ module.exports.plugins.push(
     sourceMap: true
   })
 );
-
+*/

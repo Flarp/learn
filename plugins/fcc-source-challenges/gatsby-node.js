@@ -22,7 +22,8 @@ that delivers challenge files to the plugin
       '**/.babelrc',
       '**/yarn.lock',
       '**/node_modules',
-      '../**/dist/**'
+      '../**/dist/**',
+      '**/*~'
     ]
   });
   const { source } = pluginOptions;
@@ -44,10 +45,10 @@ that delivers challenge files to the plugin
     return Promise.all(queue.map(createAndProcessNodes));
   };
 
-  // watcher.on('change', path => {
-  //   reporter.info(`changed file at ${path}`);
-  //   createAndProcessNodes().catch(err => reporter.error(err));
-  // });
+  watcher.on('change', path => {
+     reporter.info(`changed file at ${path}`);
+     createAndProcessNodes()
+  });
 
   // watcher.on('unlink', path => {
   //   reporter.info(`file deleted at ${path}`);
